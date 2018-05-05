@@ -17,10 +17,11 @@ Wiring is simple using breadboard. Just connect everything you have like shown o
 
 ![Traffic lights wiring](raspberry-pi-traffic-lights.png)
 
-## Arcitecture of solution
-The solution is made of two projects:
+## Architecture of solution
+The solution is made of three projects:
 
 * WindowsIotTrafficLights - interfaces and their default implementations.
+* WindowsIotTrafficLightsApp - UWP traffic lights app for Raspberry, has UI with traffic lights.
 * WindowsIotTrafficLightsService - traffic lights implemented as Windows 10 IoT Core background task.
 
 The core of traffic lights is shown on the following diagram.
@@ -39,3 +40,4 @@ Classes:
 * Schedule - DTO class for schedule.
 * ScheduleItem - DTO class for schedule item.
 * LedSwitcher - ISwitcher implementation for LED-s connected to Raspberry Pi.
+* FromSwitcher - ISwitcher to bling traffic lights shapes on XAML form.

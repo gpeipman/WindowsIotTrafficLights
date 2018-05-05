@@ -7,6 +7,9 @@ namespace WindowsIotTrafficLights
 {
     public class LightsManager
     {
+        public delegate void ScheduleChangedEventHandler(string newScheduleId);
+        public event ScheduleChangedEventHandler ScheduleChanged;
+
         private readonly IEnumerable<ISwitcher> _switchers;
         private readonly IScheduleUpdateClient _updateClient;
 
@@ -54,6 +57,11 @@ namespace WindowsIotTrafficLights
                     {
                         foreach (var switcher in _switchers)
                         {
+                            if(switcher == null)
+                            {
+                                continue;
+                            }
+
                             switcher.SwitchToItem(item);
                         }
 
@@ -80,6 +88,9 @@ namespace WindowsIotTrafficLights
             Debug.WriteLine("Assigning new schedule");
             _schedule = newSchedule;
             _updating = false;
+
+            Debug.WriteLine("Firing schedule changed event");
+            ScheduleChanged?.Invoke(_schedule.Id);
 
             Debug.WriteLine("Starting schedule player");
             _schedulePlayerTask = GetSchedulePlayer();
