@@ -4,11 +4,11 @@ using Newtonsoft.Json;
 
 namespace WindowsIotTrafficLights
 {
-    public class ScheduleUpdateClient
+    public class WebScheduleUpdateClient : IScheduleUpdateClient
     {
         private readonly string _updateUrl;
 
-        public ScheduleUpdateClient(string updateUrl)
+        public WebScheduleUpdateClient(string updateUrl)
         {
             _updateUrl = updateUrl;
         }
