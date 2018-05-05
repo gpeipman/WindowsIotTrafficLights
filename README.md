@@ -41,3 +41,13 @@ Classes:
 * ScheduleItem - DTO class for schedule item.
 * LedSwitcher - ISwitcher implementation for LED-s connected to Raspberry Pi.
 * FromSwitcher - ISwitcher to bling traffic lights shapes on XAML form.
+
+## Traffic lights schedule
+Part of external files folder of solution is simple PHP script that selects randomly between two JSON files:
+
+* yellow.json - blinks yellow light (traffic lights are turned off)
+* traffic.json - simple traffic lights cycle
+
+By default the script is called from my web site. If you want to change the logic of schedule update then you 
+can copy the script and json-files to your own web server or build your own end-point (just give the address of 
+end-point to constructor of WebScheduleUpdateClient).

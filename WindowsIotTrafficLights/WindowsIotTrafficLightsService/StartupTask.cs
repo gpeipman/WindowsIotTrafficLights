@@ -14,7 +14,7 @@ namespace WindowsIotTrafficLightsService
         {
             _deferral = taskInstance.GetDeferral();
 
-            var updateClient = new WebScheduleUpdateClient("http://gunnarpeipman.com/trafficlightsupdate.php");
+            var updateClient = new WebScheduleUpdateClient();
             var switcher = GetGpioSwitcher();
 
             if(switcher == null)

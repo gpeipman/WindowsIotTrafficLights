@@ -8,6 +8,10 @@ namespace WindowsIotTrafficLights
     {
         private readonly string _updateUrl;
 
+        public WebScheduleUpdateClient() : this("http://gunnarpeipman.com/trafficlightsupdate.php")
+        {
+        }
+
         public WebScheduleUpdateClient(string updateUrl)
         {
             _updateUrl = updateUrl;

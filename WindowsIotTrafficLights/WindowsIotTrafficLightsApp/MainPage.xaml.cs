@@ -21,7 +21,7 @@ namespace WindowsIotTrafficLightsApp
 
         private void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
-            var updateClient = new WebScheduleUpdateClient("http://gunnarpeipman.com/trafficlightsupdate.php");
+            var updateClient = new WebScheduleUpdateClient();
             var ledSwitcher = GetGpioSwitcher();
             var formSwitcher = new FormSwitcher(RedControl, YellowControl, GreenControl, Dispatcher);
 
