@@ -1,0 +1,17 @@
+{
+	"Id": "Traffic",
+	"Items" :[
+		{ "Red": "true", "Yellow": "false", "Green": "false", "Interval": 5000 },
+		{ "Red": "true", "Yellow": "true", "Green": "false", "Interval": 1000 },
+		{ "Red": "false", "Yellow": "false", "Green": "true", "Interval": 5000 },
+		
+		{ "Red": "false", "Yellow": "false", "Green": "true", "Interval": 1000 },
+		{ "Red": "false", "Yellow": "false", "Green": "false", "Interval": 1000 },
+		{ "Red": "false", "Yellow": "false", "Green": "true", "Interval": 1000 },
+		{ "Red": "false", "Yellow": "false", "Green": "false", "Interval": 1000 },
+		{ "Red": "false", "Yellow": "false", "Green": "true", "Interval": 1000 },
+		{ "Red": "false", "Yellow": "false", "Green": "false", "Interval": 1000 },
+		
+		{ "Red": "false", "Yellow": "true", "Green": "false", "Interval": 2000 }
+	]
+}

@@ -1,0 +1,7 @@
+{
+	"Id": "Blink yellow",
+	"Items" :[
+		{ "Red": "false", "Yellow": "true", "Green": "false", "Interval": 1000 },
+		{ "Red": "false", "Yellow": "false", "Green": "false", "Interval": 1000 },
+	]
+}
