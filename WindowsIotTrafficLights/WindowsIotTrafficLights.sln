@@ -10,6 +10,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External files", "External files", "{04C42578-59E2-4DEA-ACBA-A8D75DC304FE}"
 	ProjectSection(SolutionItems) = preProject
 		External files\Diagrams.vsdx = External files\Diagrams.vsdx
+		..\raspberry-pi-traffic-lights-diagram.png = ..\raspberry-pi-traffic-lights-diagram.png
 		..\raspberry-pi-traffic-lights.png = ..\raspberry-pi-traffic-lights.png
 		..\README.md = ..\README.md
 		External files\traffic.json = External files\traffic.json

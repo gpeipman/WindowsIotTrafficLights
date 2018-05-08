@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Diagnostics;
 using Windows.Devices.Gpio;
+using Windows.UI;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 using WindowsIotTrafficLights;
 
 namespace WindowsIotTrafficLightsApp
@@ -23,14 +25,11 @@ namespace WindowsIotTrafficLightsApp
         {
             var updateClient = new WebScheduleUpdateClient();
             var ledSwitcher = GetGpioSwitcher();
-            var formSwitcher = new FormSwitcher(RedControl, YellowControl, GreenControl, Dispatcher);
+            //var formSwitcher = new FormSwitcher(RedControl, YellowControl, GreenControl, Dispatcher);
+            var eventSwicther = new EventBasedSwitcher();
+            eventSwicther.ItemSwitched += EventSwicther_ItemSwitched;
 
-            if(ledSwitcher == null)
-            {
-                Debug.WriteLine("Switcer is null");
-            }
-
-            var switchers = new ISwitcher[] { ledSwitcher, formSwitcher };
+            var switchers = new ISwitcher[] { ledSwitcher, eventSwicther };
 
             _lightsManager = new LightsManager(switchers, updateClient);
             _lightsManager.ScheduleChanged += async x => {
@@ -40,6 +39,16 @@ namespace WindowsIotTrafficLightsApp
                 }).AsTask();
             };
             _lightsManager.Start();
+        }
+
+        private async void EventSwicther_ItemSwitched(ScheduleItem item)
+        {
+            await Dispatcher.RunAsync(CoreDispatcherPriority.High, () =>
+            {
+                RedControl.Fill = new SolidColorBrush(item.Red ? Colors.Red : Colors.Black);
+                YellowControl.Fill = new SolidColorBrush(item.Yellow ? Colors.Yellow : Colors.Black);
+                GreenControl.Fill = new SolidColorBrush(item.Green ? Colors.Green : Colors.Black);
+            }).AsTask();
         }
 
         private LedSwitcher GetGpioSwitcher()

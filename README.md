@@ -1,5 +1,8 @@
 ﻿# WindowsIotTrafficLights
-Traffic lights simulator built on Windows 10 IoT Core and Raspberry Pi.
+Traffic lights simulator built on Windows 10 IoT Core and Raspberry Pi. It supports loading of LED blinking 
+schedules from remote sources and switches schedules automatically. Schedule switch is controlled by timer thread 
+that polls remote machine for new schedule. Sample contains two schedules: normal traffic lights working cycle and 
+blinking yellow.
 
 ## Electronic components
 This is all you need to get things done on hardware size:
@@ -41,6 +44,7 @@ Classes:
 * ScheduleItem - DTO class for schedule item.
 * LedSwitcher - ISwitcher implementation for LED-s connected to Raspberry Pi.
 * FromSwitcher - ISwitcher to bling traffic lights shapes on XAML form.
+* EventBasedSwitched - Common switcher that fires ItemSwitched event when new ScheduleItem is set by manager.
 
 ## Traffic lights schedule
 Part of external files folder of solution is simple PHP script that selects randomly between two JSON files:
